@@ -1,0 +1,29 @@
+/* Add this to your styles.css file */
+
+#main-nav ul {
+    list-style-type: none;
+    padding: 0;
+    background-color: #f8f9fa;
+    overflow: hidden;
+}
+
+#main-nav li {
+    float: left;
+}
+
+#main-nav li a {
+    display: block;
+    color: #333;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#main-nav li a:hover {
+    background-color: #ddd;
+}
+
+#main-nav li a.active {
+    background-color: #4CAF50;
+    color: white;
+}

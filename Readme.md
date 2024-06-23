@@ -1,6 +1,6 @@
-# Ludogogy Website
+# Ludogogy Website (ludogogy.co.nz)
 
-This repository contains the source code for the Ludogogy company website, specializing in Game Development Education and AI Development/Education.
+This repository contains the source code for the Ludogogy company website (ludogogy.co.nz), specializing in Game Development Education and AI Development/Education.
 
 ## Table of Contents
 
@@ -16,7 +16,7 @@ This repository contains the source code for the Ludogogy company website, speci
 
 ## Overview
 
-Ludogogy is a company focused on providing education and services in Game Development and AI. This website serves as a platform to showcase our services, share educational resources, and demonstrate our capabilities through interactive web demos.
+Ludogogy (ludogogy.co.nz) is a New Zealand-based company focused on providing education and services in Game Development and AI. This website serves as a platform to showcase our services, share educational resources, and demonstrate our capabilities through interactive web demos.
 
 ## File Structure
 
@@ -80,14 +80,14 @@ ludogogy-website/
 
 ## Deployment
 
-This website is designed to be static and can be deployed on any web hosting service that supports static sites. Some recommended platforms include:
+This website is designed to be deployed at ludogogy.co.nz. The site is static and can be hosted on any web hosting service that supports static sites. Some recommended platforms include:
 
 - GitHub Pages
 - Netlify
 - Vercel
 - Amazon S3
 
-To deploy, simply upload the contents of this repository to your chosen hosting platform.
+To deploy, upload the contents of this repository to your chosen hosting platform and configure your domain (ludogogy.co.nz) to point to the hosting service.
 
 ## Contributing
 
@@ -105,4 +105,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ---
 
-For any questions or concerns, please contact us at [contact@ludogogy.com](mailto:contact@ludogogy.com).
+For any questions or concerns, please contact us at [contact@ludogogy.co.nz](mailto:contact@ludogogy.co.nz).
