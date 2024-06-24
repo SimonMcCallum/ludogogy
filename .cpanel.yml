@@ -1,7 +1,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/public_html/
+    - export DEPLOYPATH=/home/ludog319/public_html/
     - /bin/rsync -avz --delete *.html $DEPLOYPATH
     - /bin/rsync -avz --delete *.js $DEPLOYPATH
     - /bin/rsync -avz --delete style.css $DEPLOYPATH
