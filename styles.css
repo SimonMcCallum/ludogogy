@@ -1,139 +1,158 @@
-/* styles.css */
+/* Modern Ludogogy Website Styles */
 
-body {
-    font-family: Arial, sans-serif;
+:root {
+    --primary-color: #FFCC80;
+    --secondary-color: #4A90E2;
+    --text-color: #333333;
+    --background-color: #F5F7FA;
+    --card-background: #FFFFFF;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  body {
+    font-family: 'Roboto', Arial, sans-serif;
     line-height: 1.6;
-    color: #333;
+    color: var(--text-color);
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #f5f7fa 0%, #cfdff8 100%);
-    min-height: 100vh;
-}
-
-.container {
-    width: 80%;
+    background-color: var(--background-color);
+  }
+  
+  .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-}
-
-.content-box {
-    background-color: rgb(255, 253, 247);
-    border: 1px solid #727272; /* Light orange border */
-    border-radius: 8px;
-    padding: 10px;
-    margin-bottom: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.section{
-    background-color: rgb(255, 253, 247);
-    border: 1px solid #727272; /* Light orange border */
-    border-radius: 8px;
-    padding: 10px;
-    margin-bottom: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.section-divider {
-    border: 0;
-    height: 1px;
-    background: #3b3b3b;
-    margin: 30px 0;
-}
-
-h1, h2, h3 {
-    color: #333;
-}
-
-/* Navigation styles */
-#main-nav {
-    margin-bottom: 20px;
-}
-
-#main-nav ul {
-    list-style-type: none;
+  }
+  
+  /* Modern, sticky navigation */
+  #main-nav {
+    position: sticky;
+    top: 0;
+    background-color: var(--card-background);
+    box-shadow: 0 2px 4px var(--shadow-color);
+    z-index: 1000;
+  }
+  
+  #main-nav ul {
+    display: flex;
+    justify-content: space-around;
     padding: 0;
-    background-color: #333;
-    overflow: hidden;
-    border-radius: 8px;
-}
-
-#main-nav li {
-    float: left;
-}
-
-#main-nav li a {
+    margin: 0;
+    list-style-type: none;
+  }
+  
+  #main-nav li a {
     display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
+    padding: 1rem;
+    color: var(--text-color);
     text-decoration: none;
-    transition: background-color 0.3s;
-}
-
-#main-nav li a:hover {
-    background-color: #555;
-}
-
-#main-nav li a.active {
-    background-color: #FFCC80;
-    color: #333;
-}
-
-/* Logo styles */
-.logo {
-    font-size: 2.5em;
-    text-align: center;
+    transition: all 0.3s ease;
+  }
+  
+  #main-nav li a:hover,
+  #main-nav li a.active {
+    background-color: var(--primary-color);
+    color: var(--card-background);
+  }
+  
+  /* Modern card-based layout */
+  .content-box, .section {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    padding: 20px;
     margin-bottom: 20px;
-}
-
-.logo-ludo {
-    font-weight: 800; /* Thick text */
-}
-
-.logo-gogy {
-    font-weight: 100; /* Thin text */
-}
-
-/* Form styles */
-form {
+    box-shadow: 0 4px 6px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .content-box:hover, .section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px var(--shadow-color);
+  }
+  
+  /* Typography */
+  h1, h2, h3 {
+    color: var(--secondary-color);
+    margin-top: 0;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  /* Logo styles */
+  .logo {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .logo-ludo {
+    font-weight: 800;
+    color: var(--secondary-color);
+  }
+  
+  .logo-gogy {
+    font-weight: 300;
+    color: var(--text-color);
+  }
+  
+  /* Form styles */
+  form {
     display: grid;
-    gap: 10px;
-}
-
-input, select, textarea {
+    gap: 1rem;
+  }
+  
+  input, select, textarea {
     width: 100%;
-    padding: 8px;
-    border: 1px solid #FFCC80;
+    padding: 0.8rem;
+    border: 1px solid var(--primary-color);
     border-radius: 4px;
-}
-
-button {
-    background-color: #FFCC80;
-    color: #333;
-    padding: 10px 15px;
+    font-size: 1rem;
+  }
+  
+  button {
+    background-color: var(--secondary-color);
+    color: var(--card-background);
+    padding: 0.8rem 1.2rem;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #FFB74D;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+  }
+  
+  button:hover {
+    background-color: #3A7BC8;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
     .container {
-        width: 95%;
+      padding: 10px;
     }
     
-    #main-nav li {
-        float: none;
+    #main-nav ul {
+      flex-direction: column;
     }
     
     #main-nav li a {
-        border-bottom: 1px solid #555;
+      text-align: center;
     }
-}
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .content-box, .section {
+    animation: fadeIn 0.5s ease-out;
+  }
