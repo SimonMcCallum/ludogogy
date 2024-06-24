@@ -1,10 +1,53 @@
-/* Add this to your styles.css file */
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #cfdff8 100%);
+    min-height: 100vh;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.content-box {
+    background-color: rgb(221, 219, 212);
+    border: 1px solid #727272; /* Light orange border */
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.section-divider {
+    border: 0;
+    height: 1px;
+    background: #3b3b3b;
+    margin: 30px 0;
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+/* Navigation styles */
+#main-nav {
+    margin-bottom: 20px;
+}
 
 #main-nav ul {
     list-style-type: none;
     padding: 0;
-    background-color: #f8f9fa;
+    background-color: #333;
     overflow: hidden;
+    border-radius: 8px;
 }
 
 #main-nav li {
@@ -13,17 +56,75 @@
 
 #main-nav li a {
     display: block;
-    color: #333;
+    color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    transition: background-color 0.3s;
 }
 
 #main-nav li a:hover {
-    background-color: #ddd;
+    background-color: #555;
 }
 
 #main-nav li a.active {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #FFCC80;
+    color: #333;
+}
+
+/* Logo styles */
+.logo {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo-ludo {
+    font-weight: 800; /* Thick text */
+}
+
+.logo-gogy {
+    font-weight: 100; /* Thin text */
+}
+
+/* Form styles */
+form {
+    display: grid;
+    gap: 10px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #FFCC80;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #FFCC80;
+    color: #333;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #FFB74D;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+    
+    #main-nav li {
+        float: none;
+    }
+    
+    #main-nav li a {
+        border-bottom: 1px solid #555;
+    }
 }
