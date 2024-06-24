@@ -1,0 +1,8 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/public_html/
+    - /bin/rsync -avz --delete *.html $DEPLOYPATH
+    - /bin/rsync -avz --delete *.js $DEPLOYPATH
+    - /bin/rsync -avz --delete style.css $DEPLOYPATH
+    - /bin/rsync -avz --delete images/ $DEPLOYPATH/images/
