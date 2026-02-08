@@ -1,108 +1,111 @@
 # Ludogogy Website (ludogogy.co.nz)
 
-This repository contains the source code for the Ludogogy company website (ludogogy.co.nz), specializing in Game Development Education and AI Development/Education.
+Static website for Ludogogy, built with [Eleventy](https://www.11ty.dev/). NZ-based consultancy specialising in Gamification, Game Development, and AI Education.
 
-## Table of Contents
-
-- [Overview](#overview)
-- [File Structure](#file-structure)
-- [Setup](#setup)
-- [Pages](#pages)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Deployment](#deployment)
-- [Contributing](#contributing)
-- [License](#license)
-
-## Overview
-
-Ludogogy (ludogogy.co.nz) is a New Zealand-based company focused on providing education and services in Game Development and AI. This website serves as a platform to showcase our services, share educational resources, and demonstrate our capabilities through interactive web demos.
-
-## File Structure
+## Project Structure
 
 ```
-ludogogy-website/
-│
-├── index.html
-├── game-development.html
-├── ai-development.html
-├── media.html
-├── portfolio.html
-├── demos.html
-├── links.html
-├── contact.html
-├── styles.css
-├── main.js
-├── pixijs-demo.html
-├── nn-demo.html
-└── README.md
+ludogogy/
+├── src/                        # Source files (edit these)
+│   ├── _data/
+│   │   ├── site.json           # Site-wide data (name, email, phone, URLs)
+│   │   └── nav.json            # Navigation menu items
+│   ├── _includes/
+│   │   ├── base.njk            # Base HTML template (head, body wrapper)
+│   │   ├── page-header.njk     # Reusable page header banner
+│   │   └── partials/
+│   │       ├── header.njk      # Logo and site header
+│   │       ├── nav.njk         # Navigation bar
+│   │       └── footer.njk      # Site footer
+│   ├── css/
+│   │   └── styles.css          # Site-wide stylesheet
+│   ├── images/                 # All images and logos
+│   ├── index.njk               # Home page
+│   ├── ai-dev.njk              # AI Development page
+│   ├── game-dev.njk            # Game Development page
+│   └── contact.njk             # Contact page
+├── _site/                      # Build output (generated, git-ignored)
+├── .eleventy.js                # Eleventy configuration
+├── package.json                # npm dependencies
+├── nginx.conf                  # Nginx server configuration
+└── .gitignore
 ```
 
-## Setup
+## How to Edit
 
-1. Clone this repository:
+### Change site-wide info (email, phone, address)
+Edit `src/_data/site.json` - one file, updates everywhere.
+
+### Add a new page
+1. Create `src/my-page.njk`:
    ```
-   git clone https://github.com/your-username/ludogogy-website.git
+   ---
+   layout: base.njk
+   pageTitle: My New Page
+   subtitle: A description shown in the page header
+   navKey: my-page
+   heroType: page
+   ---
+
+   <section class="content-box">
+       <h2>Content here</h2>
+       <p>Your content.</p>
+   </section>
    ```
-2. Navigate to the project directory:
+2. Add to `src/_data/nav.json`:
+   ```json
+   { "url": "/my-page/", "text": "My Page", "key": "my-page" }
    ```
-   cd ludogogy-website
-   ```
-3. Open `index.html` in your web browser to view the website locally.
+3. Run `npm run build`.
 
-## Pages
+### Change navigation
+Edit `src/_data/nav.json` - array of `{url, text, key}` objects.
 
-- **Home (index.html)**: Introduction to Ludogogy and its services.
-- **Game Development**: Information about game development education offerings.
-- **AI Development**: Details on AI development and education services.
-- **Media Coverage**: Showcase of media mentions and articles about Ludogogy.
-- **Portfolio**: Display of past projects and work.
-- **Web Demos**: Interactive demonstrations including Pixi.js game and neural network examples.
-- **Learning Resources**: Curated links for game development and AI education.
-- **Contact**: Information for business inquiries and analysis services.
+### Change header, footer, or layout
+Edit the files in `src/_includes/`. Changes apply to all pages.
 
-## Features
+### Change styling
+Edit `src/css/styles.css`.
 
-- Responsive design for desktop and mobile devices
-- Interactive navigation menu
-- Pixi.js game demonstration
-- TensorFlow.js neural network demonstration
-- Smooth scrolling for in-page navigation
-- Dynamic content loading for demos
+## Local Development
 
-## Technologies Used
+```bash
+npm install          # first time only
+npm run dev          # starts local server at http://localhost:8080 with hot reload
+npm run build        # builds to _site/
+```
 
-- HTML5
-- CSS3
-- JavaScript (ES6+)
-- Pixi.js for game demonstrations
-- TensorFlow.js for AI demonstrations
+## Deployment (Nginx)
 
-## Deployment
+The site lives as a subfolder on a shared nginx server with domain `ludogogy.co.nz`.
 
-This website is designed to be deployed at ludogogy.co.nz. The site is static and can be hosted on any web hosting service that supports static sites. Some recommended platforms include:
+### Deploy
 
-- GitHub Pages
-- Netlify
-- Vercel
-- Amazon S3
+```bash
+# Build locally
+npm run build
 
-To deploy, upload the contents of this repository to your chosen hosting platform and configure your domain (ludogogy.co.nz) to point to the hosting service.
+# Upload build output to server
+rsync -avz --delete _site/ user@server:/var/www/ludogogy.co.nz/
+```
 
-## Contributing
+### Server setup (one-time)
 
-We welcome contributions to improve the Ludogogy website. Please follow these steps:
+```bash
+# Copy nginx config
+sudo cp nginx.conf /etc/nginx/sites-available/ludogogy.co.nz
+sudo ln -s /etc/nginx/sites-available/ludogogy.co.nz /etc/nginx/sites-enabled/
 
-1. Fork the repository
-2. Create a new branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+# SSL via Let's Encrypt
+sudo certbot --nginx -d ludogogy.co.nz -d www.ludogogy.co.nz
 
-## License
+# Test and reload
+sudo nginx -t && sudo systemctl reload nginx
+```
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-
----
-
-For any questions or concerns, please contact us at [contact@ludogogy.co.nz](mailto:contact@ludogogy.co.nz).
+### Nginx features
+- HTTP to HTTPS redirect
+- www to non-www redirect
+- Static asset caching (7 days)
+- Security headers (X-Frame-Options, X-Content-Type-Options)
+- Clean URLs (`/contact/` instead of `/contact.html`)

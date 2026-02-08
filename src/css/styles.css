@@ -1,0 +1,427 @@
+/* Ludogogy Website Styles */
+
+:root {
+  --primary-color: #4285f4;
+  --secondary-color: #34a853;
+  --text-color: #333333;
+  --light-gray: #f5f5f5;
+  --background-color: #F5F7FA;
+  --card-background: #FFFFFF;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --dark-gray: #333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+a {
+  color: var(--primary-color);
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header and Logo */
+header {
+  background: white;
+  padding: 1rem 0;
+  box-shadow: 0 2px 4px var(--shadow-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header nav,
+header .header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 1.8rem;
+}
+
+.logo img {
+  margin-right: 10px;
+}
+
+.logo-ludo {
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.logo-gogy {
+  font-weight: 300;
+  color: var(--dark-gray);
+}
+
+/* Navigation */
+#main-nav {
+  background-color: var(--card-background);
+  box-shadow: 0 2px 4px var(--shadow-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+#main-nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0;
+  margin: 0 auto;
+  list-style-type: none;
+  max-width: 1200px;
+}
+
+#main-nav li a {
+  display: block;
+  padding: 1rem 1.5rem;
+  color: var(--text-color);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-bottom: 3px solid transparent;
+}
+
+#main-nav li a:hover,
+#main-nav li a.active {
+  color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+  background-color: rgba(66, 133, 244, 0.05);
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  padding: 5rem 0;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0.95;
+}
+
+.cta-button {
+  display: inline-block;
+  background: white;
+  color: var(--primary-color);
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  color: var(--primary-color);
+}
+
+/* Page Header (for subpages) */
+.page-header {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  padding: 3rem 0;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.page-header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.page-header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Sections */
+.section {
+  padding: 4rem 0;
+}
+
+.section h2 {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.section p {
+  max-width: 800px;
+  margin: 0 auto 1rem;
+}
+
+/* Card-based content */
+.content-box {
+  background-color: var(--card-background);
+  border-radius: 10px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 4px var(--shadow-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px var(--shadow-color);
+}
+
+.content-box h1,
+.content-box h2 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.content-box ul {
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.content-box ul li {
+  margin-bottom: 0.5rem;
+}
+
+/* Services Grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.service-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px var(--shadow-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px var(--shadow-color);
+}
+
+.service-card h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+/* Expertise / Feature Section */
+.expertise {
+  background: var(--light-gray);
+}
+
+.expertise ul {
+  list-style-type: none;
+  text-align: center;
+  margin: 2rem 0;
+  padding: 0;
+}
+
+.expertise ul li {
+  padding: 0.3rem 0;
+  font-size: 1.1rem;
+}
+
+/* Partner Logos */
+.partners {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.partners img {
+  height: 50px;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.partners img:hover {
+  opacity: 1;
+}
+
+/* Typography */
+h1, h2, h3 {
+  color: var(--primary-color);
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Form styles */
+form {
+  display: grid;
+  gap: 1rem;
+}
+
+form label {
+  font-weight: 500;
+  margin-bottom: -0.5rem;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.1);
+}
+
+button, .btn {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+button:hover, .btn:hover {
+  background-color: #3367d6;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Footer */
+footer {
+  background: var(--dark-gray);
+  color: white;
+  padding: 2rem 0;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+footer a {
+  color: #9fc5f8;
+}
+
+footer a:hover {
+  color: white;
+}
+
+footer p {
+  margin: 0.3rem 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  #main-nav ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  #main-nav li a {
+    text-align: center;
+    padding: 0.8rem 1rem;
+  }
+
+  .hero {
+    padding: 3rem 0;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .page-header {
+    padding: 2rem 0;
+  }
+
+  .page-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .partners {
+    gap: 1.5rem;
+  }
+
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.5rem; }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.content-box, .service-card {
+  animation: fadeIn 0.5s ease-out;
+}

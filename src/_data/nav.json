@@ -1,0 +1,6 @@
+[
+  { "url": "/", "text": "Home", "key": "home" },
+  { "url": "/ai-dev/", "text": "AI Development", "key": "ai-dev" },
+  { "url": "/game-dev/", "text": "Game Development", "key": "game-dev" },
+  { "url": "/contact/", "text": "Contact", "key": "contact" }
+]

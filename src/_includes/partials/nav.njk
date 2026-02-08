@@ -1,0 +1,7 @@
+<nav id="main-nav">
+    <ul>
+        {%- for item in nav %}
+        <li><a href="{{ item.url }}" class="nav-link{% if navKey == item.key %} active{% endif %}">{{ item.text }}</a></li>
+        {%- endfor %}
+    </ul>
+</nav>

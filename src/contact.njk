@@ -1,0 +1,39 @@
+---
+layout: base.njk
+pageTitle: Contact Us
+subtitle: Get in touch with Ludogogy for inquiries, collaborations, or business analysis
+navKey: contact
+heroType: page
+description: Get in touch with Ludogogy for AI consultancy, gamification, and game development services in New Zealand.
+---
+
+<section class="content-box">
+    <h2>Contact Information</h2>
+    <p>Email: <a href="mailto:{{ site.contactEmail }}">{{ site.contactEmail }}</a></p>
+    <p>Phone: {{ site.phone }}</p>
+    <p>Address: {{ site.address }}</p>
+</section>
+
+<section class="content-box">
+    <h2>Send Us a Message</h2>
+    <form action="#" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<section class="content-box">
+    <h2>Business Analysis Services</h2>
+    <p>Interested in our business analysis for AI integration? Contact us to schedule a consultation and learn how we can help your organisation leverage the power of AI.</p>
+</section>

@@ -1,0 +1,14 @@
+{
+  "name": "ludogogy-website",
+  "version": "1.0.0",
+  "description": "Ludogogy consultancy website - ludogogy.co.nz",
+  "scripts": {
+    "build": "eleventy",
+    "dev": "eleventy --serve",
+    "clean": "rimraf _site"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "rimraf": "^6.0.0"
+  }
+}
